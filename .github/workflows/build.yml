@@ -19,8 +19,6 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: set directory
-        run: cd lib          
       - name: Restore
         run: dotnet restore
       - name: Build
