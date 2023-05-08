@@ -1,15 +1,19 @@
-namespace lib.tests.integration;
+using NUnit.Framework;
 
-public class Tests
-{
-    [SetUp]
-    public void Setup()
+namespace lib.tests.integration {
+
+    public class Tests
     {
+        [SetUp]
+        public void Setup()
+        {
+        }
+
+        [Test, Category("Integration")]    
+        public void Test1()
+        {
+            Assert.Fail();
+        }
     }
 
-    [Test]
-    public void Test1()
-    {
-        Assert.Pass();
-    }
 }

@@ -1,6 +1,8 @@
-name: build package
+name: Run Integration Tests
 
-on: [push]
+on:
+  schedule:
+    - cron: '10 17 * * *'
 
 jobs:
   build:
@@ -33,6 +35,5 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
-      - name: Test (Non Integration Tests)
-        run: dotnet test --no-restore --verbosity normal --filter Category!=Integration
-        #run: dotnet test ~/lib.tests/lib.tests.csproj --filter Category!=Integration
+      - name: Test (Integration Tests)
+        run: dotnet test ~/lib.tests/lib.tests.integration.csproj --no-restore --verbosity normal --filter Category=Integration        
