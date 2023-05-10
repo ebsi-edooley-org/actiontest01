@@ -1,0 +1,18 @@
+#Running a workflow when a pull request is approved
+#To run your workflow when a pull request has been approved, you can trigger your workflow with the 
+#submitted type of pull_request_review event, then check the review state with the github.event.review.state property. 
+#For example, this workflow will run whenever a pull request review is submitted, but the approved job will only run if the 
+#submitted review is an approving review:
+
+name: Merge_QA
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  approved:
+    if: github.base_ref == 'qa' && github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This PR was approved"
