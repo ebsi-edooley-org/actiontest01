@@ -12,7 +12,7 @@ on:
 
 jobs:
   approved:
-    if: github.base_ref == 'qa' && github.event.review.state == 'approved'
+    if: github.base_ref == 'develop' && github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "This PR was approved"
+      - run: echo "This PR was approved.  BASE_REF = $github.base_ref   HEAD_REF = $github.head_ref"
