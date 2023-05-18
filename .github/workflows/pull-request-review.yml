@@ -1,0 +1,17 @@
+# Process pull request review workflow
+
+name: Process-Pull-Request-Review
+
+on: [pull_request_review]
+  types: [submitted, edited]
+
+jobs:
+  process-pull-request-review:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: get-status
+        shell: bash
+        run: echo 'Processing pull request review'
