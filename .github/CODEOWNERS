@@ -1,2 +1,3 @@
 .github/       @ebsi-edooley
 **/migrations/  @Ev333
+*.migration.cs  @Ev333
